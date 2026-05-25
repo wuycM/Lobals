@@ -102,7 +102,7 @@ python -m lmms_eval \
 ```bash
 python -m lmms_eval \
     --model internvl3_5_reforward_visual_attention_after_layer \
-    --model_args pretrained=model_checkpoint_path,top_k=9,after_layer=35,candidate_end=35,candidate_start=8 \
+    --model_args pretrained=model_checkpoint_path,top_k=9,after_layer=39,candidate_end=39,candidate_start=8 \
     --tasks pope_full \
     --batch_size 1 \
     --device cuda:0 \
