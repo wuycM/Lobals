@@ -97,7 +97,7 @@ python -m lmms_eval \
 
 ---
 
-### InternVL3.5-8B
+### InternVL3.5-14B
 
 ```bash
 python -m lmms_eval \
