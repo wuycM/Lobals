@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.so
+.DS_Store
+.env
+.venv/
+venv/
+env/
+results/
+output/
+*.log
+lmms_eval/logs/

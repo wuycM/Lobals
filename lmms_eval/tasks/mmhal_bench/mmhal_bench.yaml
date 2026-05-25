@@ -1,0 +1,55 @@
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: mmhal_bench/response_template.json
+task: "mmhal_bench"
+test_split: test
+process_docs: !function utils.mmhal_process_docs
+output_type: generate_until
+doc_to_visual: !function utils.mmhal_doc_to_visual
+doc_to_text: !function utils.mmhal_doc_to_text
+doc_to_target: "gt_answer"
+process_results: !function utils.mmhal_process_results
+generation_kwargs:
+  max_new_tokens: 1024
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+metric_list:
+  - metric: mmhal_avg_score
+    aggregation: !function utils.mmhal_aggregate_avg_score
+    higher_is_better: true
+  - metric: mmhal_hallucination_rate
+    aggregation: !function utils.mmhal_aggregate_hallucination_rate
+    higher_is_better: false
+  - metric: mmhal_attribute_score
+    aggregation: !function utils.mmhal_aggregate_attribute_score
+    higher_is_better: true
+  - metric: mmhal_adversarial_score
+    aggregation: !function utils.mmhal_aggregate_adversarial_score
+    higher_is_better: true
+  - metric: mmhal_comparison_score
+    aggregation: !function utils.mmhal_aggregate_comparison_score
+    higher_is_better: true
+  - metric: mmhal_counting_score
+    aggregation: !function utils.mmhal_aggregate_counting_score
+    higher_is_better: true
+  - metric: mmhal_relation_score
+    aggregation: !function utils.mmhal_aggregate_relation_score
+    higher_is_better: true
+  - metric: mmhal_environment_score
+    aggregation: !function utils.mmhal_aggregate_environment_score
+    higher_is_better: true
+  - metric: mmhal_holistic_score
+    aggregation: !function utils.mmhal_aggregate_holistic_score
+    higher_is_better: true
+  - metric: mmhal_other_score
+    aggregation: !function utils.mmhal_aggregate_other_score
+    higher_is_better: true
+lmms_eval_specific_kwargs:
+  default:
+    pre_prompt: ""
+    post_prompt: ""
+metadata:
+  version: 0.0
