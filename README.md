@@ -19,7 +19,7 @@ These files implement the re-forwarding logic for InternVL3.5 and Qwen3-VL model
 
 ## Installation
 
-This repository follows the standard LMMS-EVAL installation workflow.
+InternVL3.5 and Qwen3-VL require different `torch`, `torchvision`, and `transformers` versions. Install them in separate conda environments with the corresponding optional dependency group.
 
 ### Environment for InternVL3.5
 
@@ -27,8 +27,16 @@ This repository follows the standard LMMS-EVAL installation workflow.
 conda create -n internvl python=3.10
 conda activate internvl
 
-cd Lobals_code
-pip install -e .
+cd /mnt/shared-storage-user/chemllm/yc/Lobals_code
+pip install -e ".[internvl]"
+```
+
+This installs the InternVL3.5 runtime versions:
+
+```text
+torch==2.4.1
+torchvision==0.19.1
+transformers==4.57.6
 ```
 
 ### Environment for Qwen3-VL
@@ -37,8 +45,17 @@ pip install -e .
 conda create -n qwen python=3.10
 conda activate qwen
 
-cd Lobals_code
-pip install -e .
+cd /mnt/shared-storage-user/chemllm/yc/Lobals_code
+pip install -e ".[qwen]"
+```
+
+This installs the Qwen3-VL runtime versions:
+
+```text
+torch==2.6.0
+torchvision==0.21.0
+transformers==5.8.0
+qwen-vl-utils>=0.0.14
 ```
 
 ---
