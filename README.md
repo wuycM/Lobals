@@ -37,6 +37,7 @@ This installs the InternVL3.5 runtime versions:
 torch==2.4.1
 torchvision==0.19.1
 transformers==4.57.6
+decord==0.6.0
 ```
 
 ### Environment for Qwen3-VL
